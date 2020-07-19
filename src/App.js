@@ -21,7 +21,7 @@ function App() {
         
         </a> */}
         <h1>DisTrack</h1>
-        <p>Insert your details</p>
+        <p>Insert your credentials</p>
         <Form />
       </header>      
     </div>

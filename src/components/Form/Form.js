@@ -1,28 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-// const Form = () => (
-//   <form>
-//     <div>
-//       <input type="text" className="col-lg-6 pull-left" placeholder="Username"></input>
-//       <input type="password" className="col-lg-6 pull-right" placeholder="Password"></input>
-//       <button className="btn btn-outline-info btn-lg">Submit</button>
-//     </div>
-//   </form>
-// );
-
 class Form extends React.Component {
-  state = {
 
-  }
   userNameInput = React.createRef();
   passwordInput = React.createRef();
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(this.userNameInput.current.value, ", ", this.passwordInput.current.value)
-    this.loginValidation(this.userNameInput.current.value, this.passwordInput.current.value)
+    this.loginValidation(this.userNameInput.current.value, this.passwordInput.current.value);
+    this.userNameInput.current.value = '';
+    this.passwordInput.current.value = '';
   };
 
   async loginValidation(email, password)
@@ -46,7 +34,7 @@ class Form extends React.Component {
     console.log(data)
 
     return data;
-  }
+  };
 
   render() { 
     return(
