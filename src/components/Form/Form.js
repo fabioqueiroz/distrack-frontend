@@ -22,7 +22,31 @@ class Form extends React.Component {
   onSubmitHandler = (event) => {
     event.preventDefault();
     console.log(this.userNameInput.current.value, ", ", this.passwordInput.current.value)
+    this.loginValidation(this.userNameInput.current.value, this.passwordInput.current.value)
   };
+
+  async loginValidation(email, password)
+  {
+    let details = {
+      'Email': email,
+      'Password': password
+    }
+
+    let response = await fetch(`https://localhost:44330/Login`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Origin': 'http://localhost:3000'
+      },
+      body: JSON.stringify(details)
+    });
+
+    let data = await response.json();
+    console.log(data)
+
+    return data;
+  }
 
   render() { 
     return(
